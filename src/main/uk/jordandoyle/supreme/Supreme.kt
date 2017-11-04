@@ -36,7 +36,10 @@ fun main(args: Array<String>) {
     val wait = WebDriverWait(driver, 10)
 
     // browse from the homepage
-    driver.get("http://supremenewyork.com/")
+    driver.get("http://google.com/")
+    driver.findElementByXPath("//input[@type='text']").sendKeys("supreme")
+    driver.findElementByXPath("//input[@value='Google Search']").click()
+    driver.findElementByLinkText("Supreme").click()
 
     // sleep for a little bit then go to their shop
     randomSleep()
