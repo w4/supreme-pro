@@ -35,7 +35,7 @@ fun main(args: Array<String>) {
     val builder = Actions(driver)
     val wait = WebDriverWait(driver, 10)
 
-    // browse from the homepage
+    // go to their homepage from google
     driver.get("http://google.com/")
     driver.findElementByXPath("//input[@type='text']").sendKeys("supreme")
     driver.findElementByXPath("//input[@value='Google Search']").click()
@@ -53,7 +53,7 @@ fun main(args: Array<String>) {
         // click the next product in the list
         builder.moveToElement(driver.findElementsByXPath(PRODUCT_XPATH)[i]).click().build().perform()
 
-        println("New product: " + driver.currentUrl)
+        println("New product: ${driver.currentUrl}")
 
         println("   Sleeping until Product page loads")
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("details")))
